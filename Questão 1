@@ -44,7 +44,6 @@ $pdo->exec("
     )
 ");
 
-// Verificar se a tabela foi criada
 $tabelaExiste = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='livro'")->fetch();
 
 if (!$tabelaExiste) {
