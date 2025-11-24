@@ -35,6 +35,7 @@ $arquivoBancoDados = __DIR__ . '/database.sqlite';
 $pdo = new PDO('sqlite:' . $arquivoBancoDados);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->exec("PRAGMA foreign_keys = ON");
+
 $pdo->exec("
     CREATE TABLE IF NOT EXISTS livro (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -43,13 +44,8 @@ $pdo->exec("
         ano INTEGER
     )
 ");
-
-$tabelaExiste = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='livro'")->fetch();
-
-if (!$tabelaExiste) {
-    die("Erro: Não foi possível criar a tabela 'livro'");
-}
 ?>
+
 
 
 
